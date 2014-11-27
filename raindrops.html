@@ -12,17 +12,16 @@
     void setup() {
       size(window.innerWidth,window.innerHeight);
       background(28, 107, 160);
-      frameRate(2);
     }
 
     void draw() {
       int step = 20;
-      int size = 100;
+      int size = random(6, 20);
       int y = random(0, height);
       int x = random(0, width);
 
       fill(160,235,203);
-      ellipse(width/2, height/2, size, size);
+      ellipse(x, y, size, size);
     }
 
 
