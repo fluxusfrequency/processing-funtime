@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+</head>
+<body>
+  <script src="./lib/processing-1.4.1.js"></script>
+  <script type="text/processing" data-processing-target="canvas">
+
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      background(101, 89, 123);
+      rectMode(CENTER);
+    }
+
+    void draw() {
+      fill(255);
+      ellipse(width/2 + 100, height/2 + 100, 100, 100);
+      rect(width/2, height/2, 100, 100);
+    }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
