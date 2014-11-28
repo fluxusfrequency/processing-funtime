@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+  <script src="./lib/processing-1.4.1.js"></script>
+</head>
+<body>
+  <script type="text/processing" data-processing-target="canvas">
+
+  void setup() {
+    size(window.innerWidth, window.innerHeight);
+    background(255);
+    smooth();
+    stroke(0);
+    beginShape();
+    curveVertex(width/2, 0);
+    curveVertex(width/2 - 50, 50);
+    curveVertex(width/2, 100);
+    curveVertex(width/2 - 50, 150);
+    curveVertex(width/2, 200);
+    curveVertex(width/2 - 50, 250);
+    curveVertex(width/2, 300);
+    curveVertex(width/2 - 50, 350);
+    curveVertex(width/2, 400);
+    endShape();
+  }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>

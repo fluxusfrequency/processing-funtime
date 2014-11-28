@@ -9,13 +9,42 @@
 <body>
   <script type="text/processing" data-processing-target="canvas">
 
+  PFont f;
+  float x; // horizontal location of headline
+  float theta;
+  String headline = "sup world? sup world? sup world? sup world? sup world?";
+
   void setup() {
-    size(window.innerWidth, window.innerHeight);
+    size(window.innerWidth,window.innerHeight);
     background(255);
-    smooth();
+    fill(0);
     stroke(0);
-    arc(105, 35, 50, 50, -PI, 0);
-    arc(105, 35, 50, 50, PI, 0);
+    frameRate(4);
+    f = createFont("Arial", 16, true); // type, point, anti-aliasing
+    x = width;
+  }
+
+  void draw() {
+    textFont(f, 36); // font, size
+
+    textAlign(LEFT);
+    text("sup, world?", 100, 100);
+
+    textFont(f, 16); // font, size
+    text(headline, x, 180);
+    x -= 3;
+    float w = textWidth(headline); // Gets width of the text
+    if (x < -w) {
+      x = width;
+    }
+
+    translate(CENTER);
+    rotate(theta);
+    textAlign(CENTER);
+    text("sup, world?", 300, 300);
+    theta += 0.05;
+
+    println(mouseX);
   }
 
   </script>
