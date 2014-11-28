@@ -9,14 +9,22 @@
 <body>
   <script type="text/processing" data-processing-target="canvas">
 
-  void setup() {
-    size(window.innerWidth, window.innerHeight);
-    background(255);
-    smooth();
-    stroke(0);
-    arc(105, 35, 50, 50, -PI, 0);
-    arc(105, 35, 50, 50, PI, 0);
-  }
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      stroke(255);
+      frameRate(2);
+    }
+
+    void draw() {
+      int r = random(0, 125);
+      int g = random(0, 128);
+      int b = random(0, 128);
+      background(r, g, b);
+      line(width/2, height/2, mouseX, mouseY);
+    }
+
+    void mousePressed() {
+    }
 
   </script>
   <canvas id="canvas"></canvas>

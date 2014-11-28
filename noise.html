@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+  <script src="./lib/processing-1.4.1.js"></script>
+</head>
+<body>
+  <script type="text/processing" data-processing-target="canvas">
+
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      background(28, 107, 160);
+    }
+
+    void draw() {
+      // Example: 2D Array
+      size(200,200);
+      int cols = width;
+      int rows = height;
+
+      // Declare 2D array
+      int[][] myArray = new int[cols][rows];
+
+      // Initialize 2D array values
+      for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+          myArray[i][j] = int(random(255));
+        }
+      }
+
+      // Draw points
+      for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+          stroke(myArray[i][j]);
+          point(i,j);
+        }
+      }
+    }
+
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
