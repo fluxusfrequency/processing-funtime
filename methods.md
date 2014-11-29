@@ -1,9 +1,15 @@
 # Processing Methods
 
+
+
+# Utility
+
 ## setup()
 Runs the code before the draw cycle begins.
 
 ## draw()
+
+# Shapes
 
 ## point()
 `point(x, y)`
@@ -28,6 +34,10 @@ Point 1 is the top left, point 2 is the bottom right.
 Work the same as rectangles, where the rectangle that would be there is
 the bounding box of the ellipse.
 
+
+
+# Curves
+
 ## arc()
 Section of an ellipse.
 `arc(x, y, width, height, start, stop`
@@ -51,6 +61,9 @@ Usually more useful than `curve`
 `bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2)`
 start, control, control, end
 
+## vertex
+`vertex(x, y)`
+
 ## Continuous Bezier Curve
 `beginShape()`
 `vertex(x, y)` // First point
@@ -58,20 +71,57 @@ start, control, control, end
 `bezierVertex(cpx1, cpy1, cpx2, cpy2, x, y)`
 `endShape()`
 
-## Text
-`createFont()` // declares the font
-`textFont(font, pt)` // sets the font
-`textAlign(position)` // LEFT, CENTER, RIGHT
-`textWidth(text)` // gets the text width as a float
+
+
+# Text
+
+## createFont()
+`createFont()`
+declares the font
+
+## textFont()
+`textFont(font, pt)`
+sets the font
+
+## textAlign()
+`textAlign(position)`
+LEFT, CENTER, RIGHT
+
+## textWidth()
+`textWidth(text)`
+gets the text width as a float
+
+## textLeading()
 `textLeading()`
-`textMode()` // texture map or vecor geometry. MODEL or SHAPE
+line height
+
+## textMode()
+`textMode()`
+texture map or vecor geometry. MODEL or SHAPE
+
+## textSize()
 `textSize()`
 
-`text(content, x, y)` // displays the font
+## text()
+`text(content, x, y)`
+prints the content
 
-## Translation
-`rotate(theta)` // Theta is a float, increment by 0.05 for example
-`pushMatrix()` // Saves current position of the coordinate system
-`translate(position)` // e.g. CENTER or x, y. Moves the coordinate system that many units right and down.
-`popMatrix()` // Restores the coordinate system to the pre-translated
-location
+
+
+# 2D Translation
+
+## rotate()
+`rotate(theta)`
+Measured in radians.
+
+## pushMatrix()
+`pushMatrix()`
+Saves current position of the coordinate system
+
+## translate()
+`translate(position)`
+e.g. CENTER or x, y. Moves the coordinate system that many units right and down.
+
+## popMatrix()
+`popMatrix()`
+Restores the coordinate system to the pre-translated location

@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+  <script src="./lib/processing-1.4.1.js"></script>
+</head>
+<body>
+  <script type="text/processing" data-processing-target="canvas">
+
+  PFont f;
+  float x; // horizontal location of headline
+  float theta;
+  String headline = "sup world? sup world? sup world? sup world? sup world?";
+
+  void setup() {
+    size(window.innerWidth,window.innerHeight);
+    background(255);
+    fill(0);
+    stroke(0);
+    frameRate(4);
+    f = createFont("Arial", 16, true); // type, point, anti-aliasing
+    x = width;
+  }
+
+  void draw() {
+    textFont(f, 36); // font, size
+
+    textAlign(LEFT);
+    text("sup, world?", 100, 100);
+
+    textFont(f, 16); // font, size
+    text(headline, x, 180);
+    x -= 3;
+    float w = textWidth(headline); // Gets width of the text
+    if (x < -w) {
+      x = width;
+    }
+
+    translate(CENTER);
+    rotate(theta);
+    textAlign(CENTER);
+    text("sup, world?", 300, 300);
+    theta += 0.05;
+
+    println(mouseX);
+  }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
