@@ -114,14 +114,41 @@ prints the content
 `rotate(theta)`
 Measured in radians.
 
+## radians()
+`radians(degrees)`
+Translates degrees to radians.
+
+## degrees()
+`degrees(radians)`
+Translates radians to degrees.
+
 ## pushMatrix()
 `pushMatrix()`
-Saves current position of the coordinate system
+Saves current position of the coordinate system into a stack
 
 ## translate()
 `translate(position)`
 e.g. CENTER or x, y. Moves the coordinate system that many units right and down.
 
+The coordinate system is restored to its original state (origin at the upper left of the window, no rotation, and no scaling) every time that the draw() function is executed.
+
 ## popMatrix()
 `popMatrix()`
-Restores the coordinate system to the pre-translated location
+Restores the coordinate system to the pre-translated location in the stack.
+
+## scale()
+`scale(factor)`
+`scale(xDimension, yDimension)`
+
+
+
+# 3D Translation
+
+## translate()
+`translate(x, y, z)`
+
+## scale()
+`scale(x, y, z)`
+
+## rotateX(), rotateY(), rotateZ()
+`rotateX(radians)`

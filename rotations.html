@@ -11,22 +11,35 @@
 
 void setup()
 {
-  size(200,200);
+  size(window.innerWidth, window.innerHeight);
   background(255);
-
-  noFill();
-  stroke(128);
-  rect(20, 20, 40, 40);
-
+  smooth();
   stroke(0);
-  pushMatrix();
-  translate(-20, -20);
-  scale(2.0);
-  rect(20, 20, 40, 40);
-  popMatrix();
+  translate(width/2, height/2);
+  rect(0, 0, 200, 200);
+
+  for(int i = 0; i < 31; i++) {
+    noFill();
+    pushMatrix();
+    rotate(radians(11.25 * (i + 1)));
+    rect(0, 0, 200, 200);
+    popMatrix();
+  }
+
+  for(int j = 50; j < 650; j+=50) {
+    ellipse(0, 0, j, j);
+  }
 }
 
+void draw() {
+  for(int j = 50; j < 650; j+=50) {
+    if (frameCount % j == 0) {
+      ellipse(0, 0, j, j);
+    }
+  }
+}
   </script>
   <canvas id="canvas"></canvas>
 </body>
 </html>
+
