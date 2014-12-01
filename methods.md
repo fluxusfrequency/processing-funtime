@@ -8,7 +8,22 @@
 Runs the code before the draw cycle begins.
 
 ## draw()
+Runs continuously after setup, drawing the screen in realtime.
 
+## size()
+Set width and height.
+
+## loop()
+
+## noLoop()
+
+## second()
+
+## minute()
+
+## hour()
+
+## mouseX & mouseY
 
 
 # Shapes
