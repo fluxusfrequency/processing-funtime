@@ -9,10 +9,15 @@ Runs the code before the draw cycle begins.
 
 ## draw()
 
+
+
 # Shapes
 
 ## point()
 `point(x, y)`
+
+## vertex
+`vertex(x, y)`
 
 ## line()
 `line(x1, y1, x2, y2)`
@@ -33,6 +38,66 @@ Point 1 is the top left, point 2 is the bottom right.
 ## ellipse()
 Work the same as rectangles, where the rectangle that would be there is
 the bounding box of the ellipse.
+
+## triangle()
+`triangle(x1, y1, x2, y2, x3, y3)`
+
+## Continuous Shapes
+`beginShape()`
+`vertex(x, y)`
+`vertex(x, y)`
+`endShape()`
+
+
+
+# PShape
+
+Acts as a variable to store the color and dimensions of a shape.
+
+Can improve memory efficiency by creating a Vertex Buffer Object if
+included within a class.
+
+## createShape()
+Initializes a PShape object.
+Built in options: ELLIPSE, RECT, ARC, TRIANGLE, SPHERE, BOX, LINE, GROUP
+
+## PShape#setStroke()
+Accepts a color value, e.g. `color(255)`,
+a boolean to turn on or off,
+or an integer to set the stroke for a specific vertex, e.g.
+`setStroke(i, color(255, 0, 0))`
+
+## PShape#setStrokeWeight()
+
+## PShape#setFill()
+Accepts a color value, boolean, and/or integer.
+
+## examples
+
+```java
+PShape rectangle;
+
+void setup() {
+  size(640, 360, P2D);
+  rectangle = createShape(RECT, 0, 0, 100, 50);
+  rectangle.setStroke(color(255));
+  rectangle.setStrokeWeight(4);
+  rectangle.setFill(color(127));
+}
+
+//////////////////
+
+class Star {
+  PShape s;
+  float x, y;
+}
+
+Star() {
+  s = createShape();
+  s.beginShape();
+  // etc.
+}
+```
 
 
 
@@ -60,9 +125,6 @@ Usually more useful than `curve`
 ## bezier()
 `bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2)`
 start, control, control, end
-
-## vertex
-`vertex(x, y)`
 
 ## Continuous Bezier Curve
 `beginShape()`
