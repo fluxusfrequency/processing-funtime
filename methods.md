@@ -50,57 +50,6 @@ the bounding box of the ellipse.
 
 
 
-# PShape
-
-Acts as a variable to store the color and dimensions of a shape.
-
-Can improve memory efficiency by creating a Vertex Buffer Object if
-included within a class.
-
-## createShape()
-Initializes a PShape object.
-Built in options: ELLIPSE, RECT, ARC, TRIANGLE, SPHERE, BOX, LINE, GROUP
-
-## PShape#setStroke()
-Accepts a color value, e.g. `color(255)`,
-a boolean to turn on or off,
-or an integer to set the stroke for a specific vertex, e.g.
-`setStroke(i, color(255, 0, 0))`
-
-## PShape#setStrokeWeight()
-
-## PShape#setFill()
-Accepts a color value, boolean, and/or integer.
-
-## examples
-
-```java
-PShape rectangle;
-
-void setup() {
-  size(640, 360, P2D);
-  rectangle = createShape(RECT, 0, 0, 100, 50);
-  rectangle.setStroke(color(255));
-  rectangle.setStrokeWeight(4);
-  rectangle.setFill(color(127));
-}
-
-//////////////////
-
-class Star {
-  PShape s;
-  float x, y;
-}
-
-Star() {
-  s = createShape();
-  s.beginShape();
-  // etc.
-}
-```
-
-
-
 # Curves
 
 ## arc()
@@ -214,3 +163,91 @@ Restores the coordinate system to the pre-translated location in the stack.
 
 ## rotateX(), rotateY(), rotateZ()
 `rotateX(radians)`
+
+
+
+# PShapes
+
+Acts as a variable to store the color and dimensions of a shape.
+
+Can improve memory efficiency by creating a Vertex Buffer Object if
+included within a class.
+
+## createShape()
+Initializes a PShape object.
+
+Built in options: ELLIPSE, RECT, ARC, TRIANGLE, SPHERE, BOX, LINE,
+GROUP, POINT, LINE, TRIANGLE_FAN, TRIANGLE_STRIP, QUAD, QUAD_STRIP
+
+Using GROUP allows you to add several child shapes to one shape.
+
+## shape()
+Displays a PShape
+
+## loadShape()
+Load a shape from svg(2d) or obj(3d)
+
+## PShape Methods
+
+### (group)#addChild()
+Add a child shape to a group
+
+### beginShape()
+
+### endShape()
+`endShape(CLOSE)`
+
+### setStroke()
+Accepts a color value, e.g. `color(255)`,
+a boolean to turn on or off,
+or an integer to set the stroke for a specific vertex, e.g.
+`setStroke(i, color(255, 0, 0))`
+
+### setStrokeWeight()
+
+### setFill()
+Accepts a color value, boolean, and/or integer.
+
+### beginContour()
+Knocks out the inside of another shape.
+
+### endContour()
+Knocks out the inside of another shape.
+
+### getVertexCount()
+Get the total number of vertices in the shape.
+
+### getVertex()
+Access vertex by index.
+
+### setVertex()
+`s.setVertex(index, x, y);
+
+## PShape examples
+
+```java
+PShape rectangle;
+
+void setup() {
+  size(640, 360, P2D);
+  rectangle = createShape(RECT, 0, 0, 100, 50);
+  rectangle.setStroke(color(255));
+  rectangle.setStrokeWeight(4);
+  rectangle.setFill(color(127));
+}
+
+//////////////////
+
+class Star {
+  PShape s;
+  float x, y;
+}
+
+Star() {
+  s = createShape();
+  s.beginShape();
+  // etc.
+}
+```
+
+
