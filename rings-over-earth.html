@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Randomness 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+</head>
+<body>
+  <script src="./lib/processing-1.4.1.js"></script>
+  <script type="text/processing" data-processing-target="canvas">
+
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      background(0);
+      rectMode(CENTER);
+      frameRate(10);
+    }
+
+    void draw(){
+      int step = random(1, 4);
+      int size = random(1, 5);
+      int y = random(0, sin(height) * height);
+      fill(0, random(0,255), 0);
+      stroke(random(0, 255), random(0,255), cos(frameCount) * 1000 % 255);
+      strokeWeight(random(0,2));
+      rect(width / step, y, size + cos(frameCount) * 10, size + cos(frameCount + 10));
+      noFill();
+      stroke(frameCount % 255);
+      bezier(0, 10, width * cos(frameCount - random(2, 50)) + random(1, 4), height / 3, width * sin(frameCount - random(2, 50)), height * 2 / 3, 0, height * 2);
+      stroke(162);
+      ellipse(width * 3 / 4, height / 4, 50 + sin(frameCount) * 10, 50);
+      ellipse(width * 3 / 4 + 25, height / 4 + 25, 50 + sin(frameCount) * 10, 50);
+    }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>

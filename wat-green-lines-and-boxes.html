@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Position / Loop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+</head>
+<body>
+  <script src="./lib/processing-1.4.1.js"></script>
+  <script type="text/processing" data-processing-target="canvas">
+
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      background(0);
+      rectMode(CENTER);
+      frameRate(8);
+    }
+
+    void draw(){
+      background(0);
+      // draw shape
+      stroke(0, 128, 20);
+      for(int i = 0; i < 9; i++) {
+        for(int j = 0; j < 1000; j += 100) {
+        fill(60, 0, 0);
+        rect((i * 10 + frameCount % width) - j, height * i / 8, sin(frameCount) * 100 - i * 5, cos(frameCount) * 100 - i * 5);
+        noFill();
+        bezier(sin(frameCount) * width /2, sin(frameCount) * height / 2, width, height/sin(i), width, height*2/i, sin(frameCount) * width, sin(frameCount) * height);
+        }
+      }
+    }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>

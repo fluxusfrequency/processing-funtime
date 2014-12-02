@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Repetition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+</head>
+<body>
+  <script src="./lib/processing-1.4.1.js"></script>
+  <script type="text/processing" data-processing-target="canvas">
+
+    void setup() {
+      size(window.innerWidth,window.innerHeight);
+      background(0);
+      rectMode(CENTER);
+      frameRate(5);
+    }
+
+    void draw(){
+      background(0);
+      for(int i=0; i < width; i += 200) {
+        popMatrix();
+        fill((sin(frameCount) * 100) % 255, cos(frameCount) * 100 % 255, 0);
+        rect(i, i, random(5, 100), random(5, 100));
+        fill((cos(frameCount) * 100) % 255, sin(frameCount) * 100 % 255, 0);
+        rect(width - i, i, random(5, 100), random(5, 100));
+        noFill();
+        stroke(frameCount % 255);
+        for(int j=0; j < 500; j += 50) {
+          pushMatrix();
+          ellipse(width / 2, height / 2, j, j);
+          rotate(sin(frameRate));
+          rect(width / 2, height / 2, random(40, 200), random(40, 200));
+        }
+      }
+    }
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
