@@ -266,3 +266,20 @@ Star() {
 ```
 
 
+
+# P3D
+
+To set it up, just pass it into the `background()` method like this:
+`background(300, 300, P3D0)`.
+
+## translate()
+`translate(0, 0, z); z++;`
+
+## rotateX(), rotateY(), rotateZ()
+Takes radians as an argument
+`rotateZ` is equivalent to `rotate` in 2D mode.
+
+## box()
+
+## sphere()
+
