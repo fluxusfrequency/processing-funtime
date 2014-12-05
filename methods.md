@@ -280,6 +280,59 @@ Takes radians as an argument
 `rotateZ` is equivalent to `rotate` in 2D mode.
 
 ## box()
+`box(size)`
 
 ## sphere()
+`sphere(size)`
 
+## Custom Shapes
+`beginShape()`
+`vertex(x, y, z)`
+`vertex(x, y, z)`
+`vertex(x, y, z)`
+`endShape()`
+
+## texture()
+Use texture inside of `beginShape()` with a loaded image to make it the
+texture of your 3D object.
+
+## lights()
+Makes things look 3D-er.
+
+## ambientLight()
+Even lighting
+
+## directionalLight()
+`directionalLight(r, g, b, x, y, z)`
+
+## spotLight()
+Like directional light, but with more specificity.
+`spotLight(r, g, b, x1, y1, z1, x2, y2, z2, theta, c)`
+vertex1 = light location
+vertex2 = light direction
+theta = cone angle
+c = concentration
+
+## pointLight()
+`pointLight(r, g, b, x, y, z)`
+A spotlight with a 180 degree cone.
+
+## perspective()
+Turns on foreshortening mode (default).
+Takes some args I don't understand:
+```
+float fov = PI/3.0;
+float cameraZ = (height/2.0) / tan(fov/2.0);
+perspective(fov, float(width)/float(height), cameraZ/2.0, cameraZ*2.0);
+```
+
+## ortho()
+Turns on orthographic perspective mode (qbert).
+
+## camera()
+Simulates camera movements when args are given as a variable.
+`camera(x1, y1, z1, x2, y2, z2, x3, y3, z3)`
+vertex1 = eye position
+vertex2 = scene center
+vertex3 = upwards axis
+camera(width/2, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
