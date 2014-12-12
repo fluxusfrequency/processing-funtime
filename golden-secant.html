@@ -9,24 +9,28 @@
   <script src="./lib/processing-1.4.1.js"></script>
   <script type="text/processing" data-processing-target="canvas">
 
-int z;
-int i = 0;
 void setup() {
   size(window.innerWidth, window.innerHeight, P3D);
-  frameRate(12);
-  lights();
+  smooth();
+  background(0);
 }
 
 void draw() {
-  background(0);
-  translate(width/2, height/2, z);
-  rotateX(PI / 8);
-  rotateZ(PI / 8);
-  rotateY(PI / (i % 8 + 1));
+  float radius = 0.15;
+  float cx = width / 2; // center
+  float cy = height / 2; // center
+  float px = cx; // previous
+  float py = cy; // previous
   stroke(255);
-  fill(128);
-  box(200);
-  i++;
+  for (int deg = 0; deg < 360 * 35; deg += 12) {
+    float angle = radians(deg);
+    float x = cx + (cos(angle) * radius);
+    float y = cy + (sin(angle) * radius);
+    line(px, py, x, y);
+    radius *= 1.05;
+    px = x;
+    py = y;
+  }
 }
 
   </script>

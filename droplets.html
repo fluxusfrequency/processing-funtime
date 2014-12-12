@@ -9,18 +9,71 @@
 <body>
   <script type="text/processing" data-processing-target="canvas">
 
+int r;
+int s;
+int t;
+int u;
+int v;
+int w;
+int x;
+int y;
+int z;
+int[] radii = [0, 0, 0, 0, 0, 0, 0, 0];
+
 void setup() {
   size(window.innerWidth, window.innerHeight);
   background(255);
-  frameRate(200);
+  frameRate(60);
+  stroke(0);
+  strokeWeight(5);
 }
 
-void draw(){
-  stroke(0);
+void draw() {
   translate(width/2, height/2);
-  for(int i = 0; i <= width + 400; i += 50) {
-    if (frameCount % i == 0) {
-      ellipse(0, 0, i % width, i % width);
+
+  ellipse(0, 0, r, r);
+  r++;
+  if (r / 2 > width) {
+    r = 0;
+  }
+
+  if (r > width * 1 / 8) {
+    ellipse(0, 0, s, s);
+    s++;
+    if (s / 2 > width) {
+      s = 0;
+    }
+  }
+
+  if (r > width * 2 / 8) {
+    ellipse(0, 0, t, t);
+    t++;
+    if (t / 2 > width) {
+      t = 0;
+    }
+  }
+
+  if (r > width * 3 / 8) {
+    ellipse(0, 0, u, u);
+    u++;
+    if (u / 2 > width) {
+      u = 0;
+    }
+  }
+
+  if (r > width * 4 / 8) {
+    ellipse(0, 0, v, v);
+    v++;
+    if (v / 2 > width) {
+      v = 0;
+    }
+  }
+
+ if (r > width * 5 / 8) {
+    ellipse(0, 0, w, w);
+    w++;
+    if (w / 2 > width) {
+      w = 0;
     }
   }
 }

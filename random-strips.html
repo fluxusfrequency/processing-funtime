@@ -9,28 +9,21 @@
   <script src="./lib/processing-1.4.1.js"></script>
   <script type="text/processing" data-processing-target="canvas">
 
-int z;
-int i = 0;
 void setup() {
-  size(window.innerWidth, window.innerHeight, P3D);
-  frameRate(12);
-  lights();
-}
-
-void draw() {
+  size(window.innerWidth, window.innerHeight);
   background(0);
-  translate(width/2, height/2, z);
-  rotateX(PI / 8);
-  rotateZ(PI / 8);
-  rotateY(PI / (i % 8 + 1));
-  stroke(255);
-  fill(128);
-  box(200);
-  i++;
+  stroke(255, 60);
+  for (int i = 0; i < 100; i++) {
+    float r = random(10);
+    strokeWeight(r);
+    float offset = r * 100.0;
+    line(i - 20, height, i + offset, 0);
+  }
 }
 
   </script>
   <canvas id="canvas"></canvas>
 </body>
 </html>
+
 

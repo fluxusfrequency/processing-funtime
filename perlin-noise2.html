@@ -9,24 +9,21 @@
   <script src="./lib/processing-1.4.1.js"></script>
   <script type="text/processing" data-processing-target="canvas">
 
-int z;
-int i = 0;
 void setup() {
-  size(window.innerWidth, window.innerHeight, P3D);
-  frameRate(12);
-  lights();
-}
-
-void draw() {
-  background(0);
-  translate(width/2, height/2, z);
-  rotateX(PI / 8);
-  rotateZ(PI / 8);
-  rotateY(PI / (i % 8 + 1));
-  stroke(255);
-  fill(128);
-  box(200);
-  i++;
+  size(window.innerWidth, window.innerHeight);
+  float xnoise = 0.0;
+  float ynoise = 0.0;
+  float inc = 0.003; // play with me, between 0.003 and 0.1
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      float gray = noise(xnoise, ynoise) * 255;
+      stroke(gray);
+      point(x, y);
+      xnoise += inc;
+    }
+    xnoise = 0;
+    ynoise += inc;
+  }
 }
 
   </script>

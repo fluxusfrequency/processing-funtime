@@ -9,28 +9,31 @@
   <script src="./lib/processing-1.4.1.js"></script>
   <script type="text/processing" data-processing-target="canvas">
 
-int z;
-int i = 0;
 void setup() {
-  size(window.innerWidth, window.innerHeight, P3D);
-  frameRate(12);
-  lights();
+  size(window.innerWidth, window.innerHeight);
 }
 
 void draw() {
-  background(0);
-  translate(width/2, height/2, z);
-  rotateX(PI / 8);
-  rotateZ(PI / 8);
-  rotateY(PI / (i % 8 + 1));
-  stroke(255);
-  fill(128);
-  box(200);
-  i++;
+  float offset = 50;
+  float scaleVal = 30.0;
+  float angleInc = PI / 56.0;
+  float angle = 0.0;
+  beginShape(TRIANGLE_STRIP);
+  for (int x = 4; x <= width + 5; x += 5) {
+    float y = sin(angle) * scaleVal;
+    if (x % 2 === 0) {
+      vertex(x, offset + y);
+    } else {
+      vertex(x, offset - y);
+    }
+    angle += angleInc;
+  }
+  endShape();
 }
 
   </script>
   <canvas id="canvas"></canvas>
 </body>
 </html>
+
 
