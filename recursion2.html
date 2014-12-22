@@ -22,13 +22,11 @@ void setup() {
   noLoop();
   rs = random(1, 20);
   randomSeed(rs);
-}
-
-void draw() {
   drawCircle(x, y, r, n);
 }
 
 void drawCircle(float x, float y, int radius, int num) {
+  translate(0, 0);
   float value = 126 * num / 6.0;
   fill(value, random(255), random(255), 153);
   ellipse(x, y, radius * 2, radius * 2);
