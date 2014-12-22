@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+  <script src="./lib/processing-1.4.1.js"></script>
+</head>
+<body>
+  <script type="text/processing" data-processing-target="canvas">
+
+int x = window.innerWidth / 2;
+int y = window.innerHeight / 2;
+int r = 500;
+int n = 11;
+int rs = 12;
+
+void setup() {
+  size(x * 2, y * 2);
+  noStroke();
+  smooth();
+  noLoop();
+  rs = random(1, 20);
+  randomSeed(rs);
+}
+
+void draw() {
+  drawCircle(x, y, r, n);
+}
+
+void drawCircle(float x, float y, int radius, int num) {
+  float value = 126 * num / 6.0;
+  fill(value, random(255), random(255), 153);
+  ellipse(x, y, radius * 2, radius * 2);
+  if (num > 1) {
+    num = num - 1;
+    int branches = int(random(2, 6));
+    for (int i = 0; i < branches; i++) {
+      float a = random(0, TWO_PI);
+      float newx = x + cos(a) * 6.0 * num;
+      float newy = y + sin(a) * 6.0 * num;
+      drawCircle(newx, newy, radius / 2, num);
+    }
+  }
+}
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
+
