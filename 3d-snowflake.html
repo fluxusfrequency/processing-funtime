@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Repetition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="lib/reset.css">
+</head>
+<body>
+  <script src="./lib/processing-1.4.1.js"></script>
+  <script type="text/processing" data-processing-target="canvas">
+
+float x, y, radius;
+
+void setup() {
+  size(window.innerWidth, window.innerHeight);
+  frameRate(12);
+  background(0, 0, 20);
+  stroke(255);
+  noFill();
+  strokeWeight(3);
+  radius = 80;
+}
+
+void draw() {
+  translate(width / 2, height / 2);
+
+  drawTriangle(1);
+  drawTriangle(-1);
+}
+
+void drawTriangle(int direction) {
+  beginShape();
+  for(deg = 0; deg < 360; deg += 120) {
+    x = cos(radians(deg + (90 * direction))) * radius;
+    y = sin(radians(deg + (90 * direction))) * radius;
+    vertex(x, y);
+    ellipse(x, y, 80, 80);
+  }
+  endShape(CLOSE);
+}
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
+
