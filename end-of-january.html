@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Processing Funtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="./lib/processing-1.4.8.js"></script>
+</head>
+<body>
+  <script type="text/processing" data-processing-target="canvas">
+
+int r;
+int g;
+int b;
+int radius;
+
+void setup() {
+  size(window.innerWidth, window.innerHeight);
+  noStroke();
+  background(0);
+  frameRate(24);
+}
+
+void draw() {
+  r = random(96, 148);
+  g = random(128, 196);
+  b = random(0, 128);
+  radius = random(10, 100);
+
+  if(mousePressed == true) {
+    fill(0, 26);
+  } else {
+    fill(r, g, b, 26);
+  }
+  for (int i = 0; i < radius; i++) {
+    ellipse(mouseX, mouseY + i * i, i*5, cos(radians(i/random(1, 5))) * 100);
+  }
+
+
+  if(frameCount > 500) {
+    background(0);
+  }
+}
+
+
+  </script>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
