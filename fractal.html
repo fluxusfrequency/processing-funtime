@@ -1,35 +1,34 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Repetition</title>
+  <title>Processing Funtime</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="lib/reset.css">
+  <script src="./lib/processing-1.4.1.js"></script>
 </head>
 <body>
-  <script src="../lib/processing-1.4.1.js"></script>
   <script type="text/processing" data-processing-target="canvas">
 
     void setup() {
       size(window.innerWidth, window.innerHeight);
-      frameRate(6);
-      noStroke();
+      background(96, 0, 128);
+      noFill();
+      stroke(255);
     }
 
     void draw() {
-      for (int i = 0; i < width / 20; i++) {
-        for (int j = 0; j < height / 20; j++) {
-          sludge(i, j);
-        }
-      }
+      drawCircle(window.innerWidth / 2, window.innerHeight / 2, 800);
     }
 
-    void sludge(int i, int j) {
-      fill(random(j, 255), random(j, 255), random(j, 255), 15);
-      ellipse(i * 40, j * 40, 160, 160);
+    void drawCircle(int x, int y, float radius) {
+      ellipse(x, y, radius, radius);
+      if (radius > 2) {
+        drawCircle(x + radius / 2, y, radius / 2);
+        drawCircle(x - radius / 2, y, radius / 2);
+      }
     }
 
   </script>
   <canvas id="canvas"></canvas>
 </body>
 </html>
-
